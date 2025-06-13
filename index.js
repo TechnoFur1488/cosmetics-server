@@ -11,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 const PORT = process.env.PORT
+const HOST = '0.0.0.0'
 
 const app = express()
 
@@ -29,8 +30,8 @@ app.use("/api", router)
 const start = async () => {
     try {
         await sequelize.authenticate()
-        await sequelize.sync({ alter: true })
-        app.listen(PORT, () => console.log(`Сервер работает на порту ${PORT}`))
+        await sequelize.sync()
+        app.listen(PORT, HOST, () => console.log(`Сервер работает на порту ${PORT}`))
     } catch (e) {
         console.error(e)
     }
