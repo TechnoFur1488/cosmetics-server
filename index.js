@@ -20,7 +20,11 @@ app.use(express.static(path.resolve(__dirname, "static")))
 app.use(fileUpload({}))
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+        "https://cosmetics-client-jb6e.vercel.app",
+        "https://cosmetics-client-jb6e-git-main-nikitas-projects-e30fe775.vercel.app",
+        "https://cosmetics-client-jb6e-kpdigogez-nikitas-projects-e30fe775.vercel.app"
+    ],
     methods: ["POST", "GET", "PUT", "DELETE"]
 }))
 
